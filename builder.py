@@ -70,7 +70,7 @@ class make_env:
         os.mkdir(self.build_dir)
 
     def get_src(self) -> None:
-        subprocess.run(['git', 'clone', 'https://github.com/MonstrumHD/Testing.git'], cwd=self.build_dir)
+        subprocess.run(['git', 'clone', 'https://github.com/MonstrumHD/-empyrean.git'], cwd=self.build_dir)
         shutil.move(os.path.join(self.build_dir, 'empyrean', 'src'), self.build_dir)
 
 class write_config:
