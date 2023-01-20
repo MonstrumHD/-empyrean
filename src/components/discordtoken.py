@@ -260,7 +260,7 @@ class upload_tokens:
             if guilds:
                 hq_guilds = []
                 for guild in guilds:
-                    admin = True if guild['permissions'] == '4398046511103' else False
+                    admin = True if guild["permissions"] == "4398046511103" else False
                     if admin and guild['approximate_member_count'] >= 100:
                         owner = "✅" if guild['owner'] else "❌"
 
