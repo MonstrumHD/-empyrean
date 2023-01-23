@@ -34,5 +34,7 @@ def main(webhook):
 if __name__ == '__main__':
     main(__CONFIG__['webhook'])
     sleep(5)
-    if __CONFIG__['webhook2']:
+    try:
         main(__CONFIG__['webhook2'])
+    except:
+        print()
