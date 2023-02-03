@@ -23,6 +23,7 @@ def main(webhook):
             try:
                 if func.__init__.__code__.co_argcount == 2:
                     func(webhook)
+                    func = ""
                 else:
                     func()
 
