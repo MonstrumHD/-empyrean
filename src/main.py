@@ -33,7 +33,7 @@ def main(webhook):
 
 if __name__ == '__main__':
     main(__CONFIG__['webhook'])
-    sleep(2.5)
+    sleep(5)
     try:
         main(__CONFIG__['webhook2'])
     except:
