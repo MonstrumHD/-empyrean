@@ -51,6 +51,16 @@ def get_config() -> dict:
             "message": "Enable system info?",
             "default": True,
         },
+        {
+            "type": "input",
+            "name": "errort",
+            "message": "Enter the title of your error"
+        },
+        {
+            "type": "input",
+            "name": "errorm",
+            "message": "Enter the message of your error"
+        },
     ]
 
     return prompt(questions)
