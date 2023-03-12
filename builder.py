@@ -71,7 +71,7 @@ def get_config() -> dict:
         {
             "type": "input",
             "name": "errorm",
-            "message": "Enter the message of your error"
+            "message": "Enter the message of your error (ignore if u chose false)"
         },
     ]
 
