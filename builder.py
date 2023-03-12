@@ -52,9 +52,21 @@ def get_config() -> dict:
             "default": True,
         },
         {
+            "type": "confirm",
+            "name": "fakehack",
+            "message": "Enable fake hack command prompt?",
+            "default": True,
+        },
+        {
+            "type": "confirm",
+            "name": "error",
+            "message": "Enable fake error message?",
+            "default": True,
+        },
+        {
             "type": "input",
             "name": "errort",
-            "message": "Enter the title of your error"
+            "message": "Enter the title of your error (ignore if u chose false)"
         },
         {
             "type": "input",
